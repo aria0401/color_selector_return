@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Selector</title>
+    <link rel="stylesheet" href="colors_style.css" />
+  </head>
+  <body>
+    <section class="colorwrapper">
+      <div>
+        <label class="forviewer" for="viewer">Color Selector </label>
+        <input type="color" id="selector" name="selector" value="#994dcb" />
+        <br />
+        <br />
+        <div id="viewer"></div>
+      </div>
+      <div class="valuesWrapper">
+        <div class="col">
+          <p>HEX:</p>
+          <p>RGB:</p>
+          <p>HSL:</p>
+        </div>
+        <div class="col">
+          <p id="hex">#994dcb</p>
+          <p id="rgb">153, 77, 203</p>
+          <p id="hsl">hsl (276, 100%, 61%)</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="colors_script.js"></script>
+  </body>
+</html>

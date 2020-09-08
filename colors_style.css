@@ -1,0 +1,25 @@
+.colorwrapper {
+  margin: 10vw;
+}
+
+.forviewer {
+  margin-right: 8vw;
+}
+
+#selector {
+  width: 56px;
+}
+
+#viewer {
+  width: 200px;
+  height: 200px;
+  background-color: #8100da;
+  border-radius: 10%;
+}
+
+.valuesWrapper {
+  display: flex;
+}
+.col {
+  margin-right: 2vw;
+}
