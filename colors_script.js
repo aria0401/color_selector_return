@@ -2,11 +2,6 @@
 
 window.addEventListener("load", start);
 
-let selectedColor;
-let HEXcolor;
-let RGBcolor;
-let HSLcolor;
-
 function start() {
   getColorFromUser();
 }
@@ -17,18 +12,15 @@ function getColorFromUser() {
 }
 
 function getColorValue(event) {
-  selectedColor = event.target.value;
-  showColorInBox();
+  let selectedColor = event.target.value;
+  showColorInBox(selectedColor);
   hexToRGB(selectedColor);
-  showingTextRgb();
-  rgbToHsl();
   return selectedColor;
 }
 
-function showColorInBox() {
+function showColorInBox(selectedColor) {
   const viewer = document.querySelector("#viewer");
-  let color = selectedColor;
-  viewer.style.backgroundColor = color;
+  viewer.style.backgroundColor = selectedColor;
 }
 
 function hexToRGB(color) {
@@ -36,9 +28,10 @@ function hexToRGB(color) {
   let g = parseInt(color.substring(3, 5), 16);
   let b = parseInt(color.substring(5), 16);
   let object = { r, g, b };
-  RGBcolor = `${r}, ${g}, ${b}`;
+  let RGBcolor = `${r}, ${g}, ${b}`;
   rgbToHex(object);
   rgbToHsl(object);
+  showingTextRgb(RGBcolor);
   return { r, g, b };
 }
 
@@ -46,8 +39,8 @@ function rgbToHex(obj) {
   let r = obj.r.toString(16).padStart(2, "0");
   let g = obj.g.toString(16).padStart(2, "0");
   let b = obj.b.toString(16).padStart(2, "0");
-  HEXcolor = `#${r}${g}${b}`;
-  showingTextHex();
+  let HEXcolor = `#${r}${g}${b}`;
+  showingTextHex(HEXcolor);
   return HEXcolor;
 }
 
@@ -92,18 +85,19 @@ function rgbToHsl(obj) {
   h = h.toFixed();
   l = l.toFixed(0);
   s = s.toFixed(0);
-  HSLcolor = `hsl (${h}, ${s}%, ${l}%)`;
-  showingTextHsl();
+  let HSLcolor = `${h}, ${s}%, ${l}%`;
+  // hslToRgb(h, s, l);
+  showingTextHsl(HSLcolor);
 }
 
-function showingTextHex() {
+function showingTextHex(HEXcolor) {
   document.querySelector("#hex").textContent = HEXcolor;
 }
 
-function showingTextRgb() {
+function showingTextRgb(RGBcolor) {
   document.querySelector("#rgb").textContent = RGBcolor;
 }
 
-function showingTextHsl() {
+function showingTextHsl(HSLcolor) {
   document.querySelector("#hsl").textContent = HSLcolor;
 }
